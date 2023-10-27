@@ -1,36 +1,31 @@
 <!DOCTYPE html>
 <html>
-    <body>
-        <div id="root"></div>
-    </body>
-    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
-    <script>
-        const root = document.getElementById("root");
 
-        const span = React.createElement(
-            "span",                 // html tag
-            {id:"sexy-span", style: {color: "red"}},   // property (style)
-            "Hello I'm a span"
-        );
+<body>
+    <div id="root"></div>
+</body>
+<!-- Load Babel -->
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<!-- React -->
+<script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+<!-- Custom script code -->
+<script type="text/babel">
+    const root = document.getElementById("root");
+    function App() {
+        const [counter, setCounter] = React.useState(0);
+        const onClick = () => {
+            setCounter(counter+1);
+            console.log(counter);
+        }
+    
+        return (
+            <div>
+            <h3>Total clicks: {counter}</h3>
+            <button onClick={onClick}> Click me </button>
+        </div>);
+    }
+    ReactDOM.render(<App />, root); // the first letter of Component must be Upper
+</script>
 
-        const h3 = React.createElement("h3", {
-                id: "title",
-                onMouseEnter: () => console.log("mouse enter"),
-            },
-            "Hello I'm a span"
-        );
-
-        const btn = React.createElement("button", {
-            onClick: () => console.log("I'm clicked"),
-            style:{
-                    backgroundColor:"tomato"
-                }
-        }, "Click me");
-
-        const container = React.createElement("div", null, [h3, btn]);
-
-        ReactDOM.render(container, root);
-
-    </script>
 </html>
