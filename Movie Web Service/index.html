@@ -11,21 +11,60 @@
 <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
 <!-- Custom script code -->
 <script type="text/babel">
-    const root = document.getElementById("root");
-    function App() {
-        const [counter, setCounter] = React.useState(0);
-        const onClick = () => {
-            setCounter(counter+1);
-            console.log(counter);
+    function MinutesToHours() {
+        const [values, setValues] = React.useState(0);
+        const [inverted, setInverted] = React.useState(false);
+        const onChange = (event) => {
+            setValues(event.target.value);
         }
-    
+        const Reset = () => setValues(0);
+        const onInvert = () => {
+            Reset();
+            setInverted((current) => !current);
+        }
         return (
             <div>
-            <h3>Total clicks: {counter}</h3>
-            <button onClick={onClick}> Click me </button>
-        </div>);
+                <div>
+                    <label htmlFor="minutes">Minutes</label>
+                    <input value={inverted ? values * 60 : values} id="minutes" placeholder="Minutes" type="number" onChange={onChange} disabled={inverted}/>
+                </div>
+
+                <div>
+                    <label htmlFor="hours">Hours</label>
+                    <input value={inverted ? values : Math.round(values/60)} id="hours" placeholder="Hours" type="number" onChange={onChange} disabled={!inverted} />
+                </div>
+                <button onClick={Reset}>Reset</button>
+                <button onClick={onInvert}>{inverted ? "Turn Back" : "Invert"}</button>
+            </div>
+        );
     }
-    ReactDOM.render(<App />, root); // the first letter of Component must be Upper
+    function KmToMiles() {
+        return <h3> KM 2 M </h3>
+    }
+    function App(){
+        const [index, setIndex] = React.useState("xx");
+        const onSelect = (event) => {
+            setIndex(event.target.value);
+        }
+        console.log("render /w", index);
+        return (
+            <div>
+                <h1>Super Converter</h1>
+                <select onChange={onSelect} value = {index}>
+                    <option value = "xx"> Select Your units </option>
+                    <option value = "0"> Minutes & Hours </option>
+                    <option value = "1"> Km & Miles </option>    
+                </select>
+                <hr />
+                {index === "xx" ? "Please select your units" : null}
+                {index === "0" ? <MinutesToHours /> : null}
+                {index === "1" ? <KmToMiles /> : null}
+            </div>
+        );
+    }
+    const root = document.getElementById("root");
+    ReactDOM.render(<App/>, root);
+    //ReactDOM.render(<MinutesToHours />, root); // the first letter of Component must be Upper
 </script>
 
 </html>
