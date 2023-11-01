@@ -18,7 +18,7 @@ React.StrictMode 테그를 지우면 해결.
 
 ## useEffect
 
-### 20231031
+### 20231031  Learning useEffect
 
 #### 최초 한 번만 렌더링이 되길 바랄 때
 
@@ -32,7 +32,7 @@ function useEffect(effect: EffectCallback, )
   }, []);
 
 
-### 20231101
+### 20231101  Learning all Effects
 
 #### value 변화 시에만 렌더링이 되길 바랄 때
 
@@ -67,11 +67,9 @@ return으로 destroy 될 때, 원하는 반환 값을 지정.
     console.log("created :)");
     return destroyedFn;
   }
-
   useEffect(effectFn, []);
-  return <h1>Hello</h1> ;
 
-2. 내무 함수 지정
+2. 내부 함수 지정
 
   useEffect(function() {
     console.log("created :)");
