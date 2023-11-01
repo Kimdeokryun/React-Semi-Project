@@ -5,7 +5,7 @@
 
 - Button_title__d8ixm
 
-### issue2
+### issue
 #### 렌더링 두 번씩 되는 현상
 
 rendering이 두 번되는 현상이 있어서 찾아보았더니 index.js에
@@ -15,7 +15,12 @@ StrictMode는 create-react-app로 설치했을 때 기본적으로 생성되는 
 
 React.StrictMode 테그를 지우면 해결.
 
-### useEffect
+
+## useEffect
+
+### 20231031
+
+#### 최초 한 번만 렌더링이 되길 바랄 때
 
 function useEffect(effect: EffectCallback, )
 
@@ -24,4 +29,51 @@ function useEffect(effect: EffectCallback, )
 
   useEffect(() => {
     console.log("Call the API.....");
+  }, []);
+
+
+### 20231101
+
+#### value 변화 시에만 렌더링이 되길 바랄 때
+
+  useEffect(() => {
+    console.log("Search For", keyword);
+  }, [keyword]);
+
+대상 변수들을 [] 안에 넣어준다.
+
+if(keyword !== "" && keyword.length > 5)
+
+(최초 실행 X, value 길이 지정)
+
+#### useEffect destroyed
+
+useEffect(()=> {
+    console.log("created :)");
+    return () => console.log("destroyed");
+  }, []);
+
+return으로 destroy 될 때, 원하는 반환 값을 지정.
+
+// 아래 처럼 함수형으로 설정 가능
+
+1. 외부 함수 지정
+
+  function destroyedFn() {
+    console.log("bye :(");
+  }
+
+  function effectFn() {
+    console.log("created :)");
+    return destroyedFn;
+  }
+
+  useEffect(effectFn, []);
+  return <h1>Hello</h1> ;
+
+2. 내무 함수 지정
+
+  useEffect(function() {
+    console.log("created :)");
+    return function() { console.log("destroyed"); }
   }, []);

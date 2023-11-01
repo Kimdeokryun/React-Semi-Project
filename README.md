@@ -7,7 +7,7 @@ Windows11
 react-create-app "원하는 폴더 명"
 
 ## 2023-10-31 
-### issue1 
+### issue
 
 [React] 'react-scripts'은(는) 내부 또는 외부 명령 실행할 수 있는 프로그램, 또는 배치 파일이 아닙니다.
 
