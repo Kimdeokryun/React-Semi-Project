@@ -75,3 +75,16 @@ return으로 destroy 될 때, 원하는 반환 값을 지정.
     console.log("created :)");
     return function() { console.log("destroyed"); }
   }, []);
+
+
+## To Do
+
+### 20231102 Learning To Do List
+
+setToDos((currentArray) => [toDo, ...currentArray]);
+
+currentArray Array에 toDo를 넣고 싶다면 [toDo, ...currentArray]   
+// ...currentArray 를 사용
+
+Array의 값을 표현 하기
+{toDos.map((item, index) => ()}
