@@ -1,5 +1,21 @@
 ### react classname for module.css
 
+src
+ ┣ components
+ ┃ ┗ Movie.js
+ ┣ routes
+ ┃ ┣ Detail.js
+ ┃ ┗ Home.js
+ ┣ TempFiles
+ ┃ ┣ #6.js
+ ┃ ┗ #7 To Do.js
+ ┣ App.js
+ ┣ App.module.css
+ ┣ Button.js
+ ┣ Button.module.css
+ ┗ index.js
+
+
 #### class name을 랜덤으로 생성하기 때문에 class name을 같게해도 문제가 되지 않는다.
 - App_title__oSnkz
 
@@ -88,3 +104,44 @@ currentArray Array에 toDo를 넣고 싶다면 [toDo, ...currentArray]
 
 Array의 값을 표현 하기
 {toDos.map((item, index) => ()}
+
+## react-router-dom
+
+### 20231103 Learning react-router-dom
+
+npm install react-router-dom
+
+App.js 는 router로 작용
+
+### react router
+
+<Router>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/movie/:id" element={<Detail />} />
+    </Routes>
+  </Router>;
+
+other component
+<Link to="/movie">
+
+
+### react 웹 어플리케이션 배포
+1. npm install gh-pages
+2. npm run build
+3. package.json 수정
+
+  추가
+  "homepage": "https://Kimdeokryun.github.io/React-Semi-Project/tree/main/react-for-beginners"
+
+  변경
+    "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "deploy": "gh-pages -d build",
+    "predeploy": "npm run build"
+  }
+
+4. npm run deploy
