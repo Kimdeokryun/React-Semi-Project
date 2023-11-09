@@ -17,3 +17,19 @@ npx create-react-app react-hooks
 - [] usePreventLeave
 - [] useConfirm
 - [] useAxios
+
+#
+
+https://codesandbox.io/
+
+
+#
+
+## Hooks란?
+
+functional component에서 state를 가질 수 있게 해준다.
+
+-> class component, did mount, render를 안 해도 된다!
+
+함수형 프로그래밍.
+
