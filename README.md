@@ -4,7 +4,7 @@ Install - nodejs 20.9.0 LTS
 
 Windows11
 
-react-create-app "원하는 폴더 명"
+npx create-react-app "원하는 폴더 명"
 
 ## 2023-10-31 
 ### issue
