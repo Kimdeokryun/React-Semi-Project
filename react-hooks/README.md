@@ -79,3 +79,24 @@ const maxLen = (value) => value.length <= 10;
 ```
 
 value의 길이가 10 이하 인 경우에만 validator 가 true
+
+## useTabs
+
+React Hook "useState" 오류 해결방법
+```
+React Hook "useState" is called conditionally. React Hooks must be called in the exact same order in every component render. Did you accidentally call a React Hook after an early return?
+```
+
+위와 같은 에러가 떴을 때 아래와 같이 useState()를 최상단으로 이동시켜주시면 됩니다.
+*최상위(at the Top Level)에서만 Hook을 호출해야 합니다.
+```
+const useTabs = (initialTab, allTabs) => {
+
+const [currentIndex, setCurrentIndex] = useState(initialTab);
+
+if (!allTabs || !Array.isArray(allTabs)) {
+return;
+}
+return { currentItem: allTabs[currentIndex] };
+};
+```
