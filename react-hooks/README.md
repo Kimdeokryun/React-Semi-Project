@@ -3,8 +3,8 @@
 npx create-react-app react-hooks
 
 # Collection of React Hooks to install with NPM
-- [✅] useTitle
-- [✅] useInput
+- [✅] useTitle         20231109
+- [✅] useInput         20231109
 - [] usePageLeave
 - [] useClick
 - [] useFadeIn
@@ -13,7 +13,7 @@ npx create-react-app react-hooks
 - [] useNetwork
 - [] useNotification
 - [] useScroll
-- [] useTabs
+- [✅] useTabs          20231109
 - [] usePreventLeave
 - [] useConfirm
 - [] useAxios
