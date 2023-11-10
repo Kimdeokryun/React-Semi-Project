@@ -3,13 +3,13 @@
 npx create-react-app react-hooks
 
 # Collection of React Hooks to install with NPM
-- [✅] useTitle         20231109
+- [✅] useTitle         20231110
 - [✅] useInput         20231109
 - [] usePageLeave
-- [] useClick
+- [✅] useClick         20231110
 - [] useFadeIn
 - [] useFullScreen
-- [] useHover
+- [] useHoverf 
 - [] useNetwork
 - [] useNotification
 - [] useScroll
@@ -114,3 +114,25 @@ func -> EffectCallback
 ## useTitle
 
 useState와 useEffect를 활용하여 setTitle
+
+
+## useClick
+
+autofocus
+```
+function App() {
+  const potato = useRef();
+  setTimeout(() => potato.current.focus(), 5000); // autofocus
+
+  return (
+    <div className="App">
+      <div>Hi</div>
+      <input ref={potato} placeholder="la" />
+    </div>
+  );
+}
+```
+
+useEffect 안에 function을 넣게 되면 componentDidMount, componentDidUpdate 때 호출 된다. (dependency가 없다면)
+
+return이 function 이라면, ComponentWillUnmount 로 부터 호출 된 것.
