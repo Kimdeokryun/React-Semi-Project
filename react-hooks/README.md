@@ -100,3 +100,15 @@ return;
 return { currentItem: allTabs[currentIndex] };
 };
 ```
+
+## useEffect
+
+ComponentDidMount, ComponentWillUnMount, ComponentDidUpdate
+
+`useEffect(func, []);`
+
+func -> EffectCallback
+
+[] -> DependencyList
+
+
